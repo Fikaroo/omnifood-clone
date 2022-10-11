@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Omnifood Clone</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'rubik': ['Rubik', 'sans-serif']
+                    },
+                    colors: {
+                        primary: '#e67e22',
+                        second: '#fdf2e9',
+                        textPr: '#333',
+                        textSc: '#555',
+                        textTh: '#DDDDDD',
+                        textOpFr: '#6f6f6f',
+                        textOpSc: '#cf711f',
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        html {
+            @apply scroll-smooth
+        }
+        .nav-list {
+            @apply text-textPr font-medium
+        }
+        .btnCta { @apply px-7 py-2.5 bg-[#45260a] text-white rounded-lg font-semibold text-lg flex items-center justify-center hover:bg-white hover:text-textSc active:ring-8 ring-white ring-opacity-50}
+
+        .btnNav {
+            @apply px-5 py-2.5 bg-primary rounded-lg font-semibold text-white
+        }
+
+        .btnPrimary {
+            @apply px-7 py-2.5 bg-primary text-white rounded-lg font-semibold text-lg flex items-center justify-center hover:bg-textOpSc active:ring-8 ring-primary ring-opacity-50
+        }
+
+        .btnSecondary {
+            @apply px-7 py-1 bg-white text-textSc rounded-lg font-semibold text-lg flex items-center justify-center border-4 border-white hover:bg-transparent transition-all duration-300
+        }
+
+        h1,h2,h3 {
+            @apply text-textPr
+        }
+
+        .avatar {
+            @apply inline-block w-10 h-10 rounded-full ring ring-white
+        }
+
+        .sponsor {
+            @apply brightness-0 opacity-50 h-7
+        }
+
+        .subtitle {
+            @apply text-textOpSc font-medium text-sm
+        }
+
+        .circle {
+            @apply before:w-3/5 before:pb-[60%] before:absolute before:rounded-[50%] before:bg-second before:-z-20 after:w-1/2 after:pb-[50%] after:bg-[#fae5d3] after:-z-10 after:rounded-[50%] after:block after:absolute
+        }
+
+        .badge {
+            @apply py-1 px-2 text-xs rounded-full text-textPr font-semibold
+        }
+
+        .profile {
+            @apply rounded-full w-16 h-16
+        }
+
+        .tag {
+            @apply after:content-['BEST_VALUE'] after:text-textPr after:absolute after:font-bold after:bg-[#ffd43b] after:text-sm after:py-1 after:px-12 after:transform after:rotate-45 after:top-[5%] after:-right-[12%]
+         }
+    </style>
+</head>
+
+<body class="font-rubik text-textSc">
+    <header class="px-12 justify-between bg-second h-24 flex items-center w-full z-40 ">
+        <a href="#">
+            <img class="h-5" src="./assets/img/omnifood-logo.png" alt="omnifood-logo">
+        </a>
+        <nav class="">
+            <ul class="flex gap-12">
+                <li><a class="nav-list" href="#how">How it works</a></li>
+                <li><a class="nav-list" href="#meals">Meals</a></li>
+                <li><a class="nav-list" href="#testimonials">Testimonials</a></li>
+                <li><a class="nav-list" href="#pricing">Pricing</a></li>
+                <li><a class="nav-list btnNav" href="#cta">Try for
+                        free</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="bg-second hero">
+            <div class="flex px-12 py-12">
+                <div>
+                    <h1 class=" text-5xl font-bold mb-8">A healthy meal delivered to your door, every single day</h1>
+                    <p class="pr-20 text-lg mb-12">The smart 365-days-per-year food subscription that will make you eat
+                        healthy
+                        again. Tailored to your personal tastes and nutritional needs.</p>
+                    <div class="flex gap-5">
+                        <a href="#" class="btnPrimary">Start eating well</a>
+                        <a href="#cta" class="btnSecondary">Learn more ↓</a>
+                    </div>
+                    <div class="flex mt-20 gap-6">
+                        <div class="flex -space-x-2 overflow-hidden">
+                            <img class="avatar" src="./assets/img/customers/customer-1.jpg" alt="">
+                            <img class="avatar" src="./assets/img/customers/customer-2.jpg" alt="">
+                            <img class="avatar" src="./assets/img/customers/customer-3.jpg" alt="">
+                            <img class="avatar" src="./assets/img/customers/customer-4.jpg" alt="">
+                            <img class="avatar" src="./assets/img/customers/customer-5.jpg" alt="">
+                            <img class="avatar" src="./assets/img/customers/customer-6.jpg" alt="">
+                        </div>
+                        <div class="flex items-center gap-1 font-semibold">
+                            <span class="text-textOpSc font-bold">250,000+</span> meals delivered last year!
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <img src="./assets/img/hero.webp" alt="">
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="text-[#888] w-full py-10 flex flex-col items-center gap-6">
+                <span class="font-medium text-sm">AS FEATURED IN</span>
+                <div class="flex gap-10">
+                    <img class="sponsor" src="./assets/img/logos/techcrunch.png" alt="">
+                    <img class="sponsor" src="./assets/img/logos/business-insider.png" alt="">
+                    <img class="sponsor" src="./assets/img/logos/the-new-york-times.png" alt="">
+                    <img class="sponsor" src="./assets/img/logos/forbes.png" alt="">
+                    <img class="sponsor" src="./assets/img/logos/usa-today.png" alt="">
+                </div>
+            </div>
+        </section>
+        <section id="how">
+            <div class="py-16 px-24">
+                <div class="flex flex-col gap-4 mb-8">
+                    <span class="subtitle">HOW IT WORKS</span>
+                    <h2 class="font-bold text-4xl">Your daily dose of health in 3 simple steps</h2>
+                </div>
+                <div class="grid grid-cols-2">
+                    <div class="py-28">
+                        <span class="font-semibold text-textTh text-7xl">01</span>
+                        <h3 class="text-3xl font-bold mt-3 mb-6 whitespace-nowrap">Tell us what you like (and what not)
+                        </h3>
+                        <p class="pr-8">Never again waste time thinking about what to eat! Omnifood AI will create a
+                            100%
+                            personalized weekly meal plan just for you. It makes sure you get all the nutrients and
+                            vitamins you need, no matter what diet you follow!</p>
+                    </div>
+                    <div class="flex justify-center items-center circle relative">
+                        <img class="w-1/3" src="./assets/img/app/app-screen-1.png" alt="">
+                    </div>
+                    <div class="flex justify-center items-center circle relative">
+                        <img class="w-1/3" src="./assets/img/app/app-screen-2.png" alt="">
+                    </div>
+                    <div class="py-28">
+                        <span class="font-semibold text-textTh text-7xl">02</span>
+                        <h3 class="text-3xl font-bold mt-3 mb-6">Approve your weekly meal plan</h3>
+                        <p class="pr-8">Once per week, approve the meal plan generated for you by Omnifood AI. You can
+                            change
+                            ingredients, swap entire meals, or even add your own recipes.</p>
+                    </div>
+                    <div class="py-28">
+                        <span class="font-semibold text-textTh text-7xl">03</span>
+                        <h3 class="text-3xl font-bold mt-3 mb-6">Receive meals at convenient time</h3>
+                        <p class="pr-8">Best chefs in town will cook your selected meal every day, and we will deliver
+                            it to your
+                            door whenever works best for you. You can change delivery schedule and address daily!</p>
+                    </div>
+                    <div class="flex justify-center items-center circle relative">
+                        <img class="w-1/3" src="./assets/img/app/app-screen-3.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="meals">
+            <div class="py-16 px-24">
+                <div class="flex flex-col gap-4 mb-24 w-full justify-center items-center">
+                    <span class="subtitle">MEALS</span>
+                    <h2 class="font-bold text-4xl">Omnifood AI chooses from 5,000+ recipes</h2>
+                </div>
+                <div class="grid grid-cols-3 gap-16">
+                    <div class="transition-all duration-500 hover:-translate-y-5 rounded-lg ">
+                        <div>
+                            <img class=" rounded-t-lg" src="./assets/img/meals/meal-1.jpg" alt="">
+                        </div>
+                        <div class="px-10 py-8 shadow-lg rounded-lg">
+                            <span class="badge bg-[#51cf66] ">VEGETARIAN</span>
+                            <p class="text-2xl text-textPr font-bold mt-2 mb-6">Japanese Gyozas</p>
+                            <ul class="flex flex-col gap-6">
+                                <li class="flex gap-3">
+                                    <div>
+                                        <svg width="24px" height="24px" viewBox="0 0 512 512"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <title>ionicons-v5-m</title>
+                                            <path
+                                                d="M112,320c0-93,124-165,96-272,66,0,192,96,192,272a144,144,0,0,1-288,0Z"
+                                                style="fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"
+                                                class="stroke-primary" />
+                                            <path
+                                                d="M320,368c0,57.71-32,80-64,80s-64-22.29-64-80,40-86,32-128C266,240,320,310.29,320,368Z"
+                                                style="fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"
+                                                class="stroke-primary" />
+                                        </svg>
+                                    </div>
+                                    <p class="text-xl"><span class="font-medium mr-1">650</span>calories</p>
+                                </li>
+                                <li class="flex gap-3">
+                                    <div>
+                                        <svg width="24px" height="24px" viewBox="0 0 512 512"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <title>ionicons-v5-p</title>
+                                            <path
+                                                d="M57.49,47.74,425.92,416.17a37.28,37.28,0,0,1,0,52.72h0a37.29,37.29,0,0,1-52.72,0l-90-91.55A32,32,0,0,1,274,354.91v-5.53a32,32,0,0,0-9.52-22.78l-11.62-10.73a32,32,0,0,0-29.8-7.44h0A48.53,48.53,0,0,1,176.5,295.8L91.07,210.36C40.39,159.68,21.74,83.15,57.49,47.74Z"
+                                                style="fill:none;stroke-linejoin:round;stroke-width:32px"
+                                                class="stroke-primary" />
+                                            <path
+                                                d="M400,32l-77.25,77.25A64,64,0,0,0,304,154.51v14.86a16,16,0,0,1-4.69,11.32L288,192"
+                                                style="fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"
+                                                class="stroke-primary" />
+                                            <path
+                                                d="M320,224l11.31-11.31A16,16,0,0,1,342.63,208h14.86a64,64,0,0,0,45.26-18.75L480,112"
+                                                style="fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"
+                                                class="stroke-primary" />
+                                            <line x1="440" y1="72" x2="360" y2="152"
+                                                style="fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"
+                                                class="stroke-primary" />
+                                            <path
+                                                d="M200,368,100.28,468.28a40,40,0,0,1-56.56,0h0a40,40,0,0,1,0-56.56L128,328"
+                                                style="fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"
+                                                class="stroke-primary" />
+                                        </svg>
+                                    </div>
+                                    <p class="text-xl">NutriScore ®<span class="font-medium ml-1"> 74</span></p>
+                                </li>
+                                <li class="flex gap-3">
+                                    <div class="stroke-[24px] stroke-primary fill-transparent w-[24px] stroke-current">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                                            class=" stroke-primary">
+                                            <title>Star</title>
+                                            <path
+                                                d="M480 208H308L256 48l-52 160H32l140 96-54 160 138-100 138 100-54-160z"
+                                                stroke-linejoin="round">
+                                            </path>
+                                        </svg>
+                                    </div>
+                                    <p class="text-xl"><span class="font-medium mr-1">4.9 </span>rating (537)</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="transition-all duration-500 hover:-translate-y-5 rounded-lg ">
+                        <div>
+                            <img class=" rounded-t-lg" src="./assets/img/meals/meal-2.jpg" alt="">
+                        </div>
+                        <div class="px-10 py-8 shadow-lg rounded-lg">
+                            <span class="badge bg-[#94d82d]">VEGAN</span>
+                            <span class="badge bg-[#ffd43b]">PALEO</span>
+                            <p class="text-2xl text-textPr font-bold mt-2 mb-6">Avocado Salad</p>
+                            <ul class="flex flex-col gap-6">
+                                <li class="flex gap-3">
+                                    <div>
+                                        <svg width="24px" height="24px" viewBox="0 0 512 512"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <title>ionicons-v5-m</title>
+                                            <path
+                                                d="M112,320c0-93,124-165,96-272,66,0,192,96,192,272a144,144,0,0,1-288,0Z"
+                                                style="fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"
+                                                class="stroke-primary" />
+                                            <path
+                                                d="M320,368c0,57.71-32,80-64,80s-64-22.29-64-80,40-86,32-128C266,240,320,310.29,320,368Z"
+                                                style="fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"
+                                                class="stroke-primary" />
+                                        </svg>
+                                    </div>
+                                    <p class="text-xl"><span class="font-medium mr-1">400</span>calories</p>
+                                </li>
+                                <li class="flex gap-3">
+                                    <div>
+                                        <svg width="24px" height="24px" viewBox="0 0 512 512"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <title>ionicons-v5-p</title>
+                                            <path
+                                                d="M57.49,47.74,425.92,416.17a37.28,37.28,0,0,1,0,52.72h0a37.29,37.29,0,0,1-52.72,0l-90-91.55A32,32,0,0,1,274,354.91v-5.53a32,32,0,0,0-9.52-22.78l-11.62-10.73a32,32,0,0,0-29.8-7.44h0A48.53,48.53,0,0,1,176.5,295.8L91.07,210.36C40.39,159.68,21.74,83.15,57.49,47.74Z"
+                                                style="fill:none;stroke-linejoin:round;stroke-width:32px"
+                                                class="stroke-primary" />
+                                            <path
+                                                d="M400,32l-77.25,77.25A64,64,0,0,0,304,154.51v14.86a16,16,0,0,1-4.69,11.32L288,192"
+                                                style="fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"
+                                                class="stroke-primary" />
+                                            <path
+                                                d="M320,224l11.31-11.31A16,16,0,0,1,342.63,208h14.86a64,64,0,0,0,45.26-18.75L480,112"
+                                                style="fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"
+                                                class="stroke-primary" />
+                                            <line x1="440" y1="72" x2="360" y2="152"
+                                                style="fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"
+                                                class="stroke-primary" />
+                                            <path
+                                                d="M200,368,100.28,468.28a40,40,0,0,1-56.56,0h0a40,40,0,0,1,0-56.56L128,328"
+                                                style="fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"
+                                                class="stroke-primary" />
+                                        </svg>
+                                    </div>
+                                    <p class="text-xl">NutriScore ®<span class="font-medium ml-1">92</span></p>
+                                </li>
+                                <li class="flex gap-3">
+                                    <div class="stroke-[24px] stroke-primary fill-transparent w-[24px] stroke-current">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                                            class=" stroke-primary">
+                                            <title>Star</title>
+                                            <path
+                                                d="M480 208H308L256 48l-52 160H32l140 96-54 160 138-100 138 100-54-160z"
+                                                stroke-linejoin="round">
+                                            </path>
+                                        </svg>
+                                    </div>
+                                    <p class="text-xl"><span class="font-medium mr-1">4.8 </span>rating (441)</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class=" font-bold text-3xl mb-8">Works with any diet:</h3>
+                        <ul class="space-y-4">
+                            <li class="flex gap-4"><svg width="32px" height="32px" viewBox="0 0 512 512"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <title>ionicons-v5-e</title>
+                                    <polyline points="416 128 192 384 96 288"
+                                        style="fill:none;stroke:#e67e22;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px" />
+                                </svg><span class="text-lg">Vegetarian</span></li>
+                            <li class="flex gap-4"><svg width="32px" height="32px" viewBox="0 0 512 512"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <title>ionicons-v5-e</title>
+                                    <polyline points="416 128 192 384 96 288"
+                                        style="fill:none;stroke:#e67e22;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px" />
+                                </svg><span class="text-lg">Vegan</span></li>
+                            <li class="flex gap-4"><svg width="32px" height="32px" viewBox="0 0 512 512"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <title>ionicons-v5-e</title>
+                                    <polyline points="416 128 192 384 96 288"
+                                        style="fill:none;stroke:#e67e22;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px" />
+                                </svg><span class="text-lg">Pescatarian</span></li>
+                            <li class="flex gap-4"><svg width="32px" height="32px" viewBox="0 0 512 512"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <title>ionicons-v5-e</title>
+                                    <polyline points="416 128 192 384 96 288"
+                                        style="fill:none;stroke:#e67e22;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px" />
+                                </svg><span class="text-lg">Gluten-free</span></li>
+                            <li class="flex gap-4"><svg width="32px" height="32px" viewBox="0 0 512 512"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <title>ionicons-v5-e</title>
+                                    <polyline points="416 128 192 384 96 288"
+                                        style="fill:none;stroke:#e67e22;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px" />
+                                </svg><span class="text-lg">Lactose-free</span></li>
+                            <li class="flex gap-4"><svg width="32px" height="32px" viewBox="0 0 512 512"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <title>ionicons-v5-e</title>
+                                    <polyline points="416 128 192 384 96 288"
+                                        style="fill:none;stroke:#e67e22;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px" />
+                                </svg><span class="text-lg">Keto</span></li>
+                            <li class="flex gap-4"><svg width="32px" height="32px" viewBox="0 0 512 512"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <title>ionicons-v5-e</title>
+                                    <polyline points="416 128 192 384 96 288"
+                                        style="fill:none;stroke:#e67e22;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px" />
+                                </svg><span class="text-lg">Paleo</span></li>
+                            <li class="flex gap-4"><svg width="32px" height="32px" viewBox="0 0 512 512"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <title>ionicons-v5-e</title>
+                                    <polyline points="416 128 192 384 96 288"
+                                        style="fill:none;stroke:#e67e22;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px" />
+                                </svg><span class="text-lg">Low FODMAP</span></li>
+                            <li class="flex gap-4"><svg width="32px" height="32px" viewBox="0 0 512 512"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <title>ionicons-v5-e</title>
+                                    <polyline points="416 128 192 384 96 288"
+                                        style="fill:none;stroke:#e67e22;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px" />
+                                </svg><span class="text-lg">Kid-friendly</span></li>
+
+                        </ul>
+                    </div>
+                </div>
+                <a class="text-primary underline w-full flex justify-center py-8 text-lg" href="#">See all recipes →</a>
+            </div>
+        </section>
+        <section id="testimonials" class="bg-second">
+            <div class="py-16 px-24 flex">
+                <div class="flex flex-col mb-8 gap-4 w-1/2 pr-20">
+                    <span class="subtitle">TESTIMONIALS</span>
+                    <h2 class="font-bold text-4xl mb-10">Once you try it, you can't go back</h2>
+                    <div class="grid grid-cols-2 gap-8">
+                        <div class="flex flex-col gap-4">
+                            <img class="profile" src="./assets/img/customers/dave.jpg" alt="">
+                            <p class="pr-4">Inexpensive, healthy and great-tasting meals, without even having to order
+                                manually! It
+                                feels truly magical.</p>
+                            <span class="text-textOpFr">— Dave Bryson</span>
+                        </div>
+                        <div class="flex flex-col gap-4">
+                            <img class="profile" src="./assets/img/customers/ben.jpg" alt="">
+                            <p class="pr-4">The AI algorithm is crazy good, it chooses the right meals for me every
+                                time. It's
+                                amazing not to worry about food anymore!</p>
+                            <span class="text-textOpFr">— Ben Hadley</span>
+                        </div>
+                        <div class="flex flex-col gap-4">
+                            <img class="profile" src="./assets/img/customers/steve.jpg" alt="">
+                            <p class="pr-6">Omnifood is a life saver! I just started a company, so there's no time for
+                                cooking. I
+                                couldn't live without my daily meals now!</p>
+                            <span class="text-textOpFr">— Steve Miller</span>
+                        </div>
+                        <div class="flex flex-col gap-4">
+                            <img class="profile" src="./assets/img/customers/dave.jpg" alt="">
+                            <p class="pr-6">I got Omnifood for the whole family, and it frees up so much time! Plus,
+                                everything is
+                                organic and vegan and without plastic.</p>
+                            <span class="text-textOpFr">— Hannah Smith</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-3 gap-8 py-8 pl-12 w-1/2">
+                    <figure>
+                        <img src="./assets/img/gallery/gallery-1.jpg" alt="">
+                    </figure>
+                    <figure>
+                        <img src="./assets/img/gallery/gallery-2.jpg" alt="">
+                    </figure>
+                    <figure>
+                        <img src="./assets/img/gallery/gallery-3.jpg" alt="">
+                    </figure>
+                    <figure>
+                        <img src="./assets/img/gallery/gallery-4.jpg" alt="">
+                    </figure>
+                    <figure>
+                        <img src="./assets/img/gallery/gallery-5.jpg" alt="">
+                    </figure>
+                    <figure>
+                        <img src="./assets/img/gallery/gallery-6.jpg" alt="">
+                    </figure>
+                    <figure>
+                        <img src="./assets/img/gallery/gallery-7.jpg" alt="">
+                    </figure>
+                    <figure>
+                        <img src="./assets/img/gallery/gallery-8.jpg" alt="">
+                    </figure>
+                    <figure>
+                        <img src="./assets/img/gallery/gallery-9.jpg" alt="">
+                    </figure>
+                    <figure>
+                        <img src="./assets/img/gallery/gallery-10.jpg" alt="">
+                    </figure>
+                    <figure>
+                        <img src="./assets/img/gallery/gallery-11.jpg" alt="">
+                    </figure>
+                    <figure>
+                        <img src="./assets/img/gallery/gallery-12.jpg" alt="">
+                    </figure>
+                </div>
+            </div>
+        </section>
+        <sectios id="pricing">
+            <div class="py-16 px-24 ">
+                <div class="flex flex-col gap-4 mb-8">
+                    <span class="subtitle">PRICING</span>
+                    <h2 class="font-bold text-4xl">Eating well without breaking the bank</h2>
+                </div>
+                <div class="flex gap-24 justify-center items-center w-full py-12">
+                    <div class="border-2 border-second rounded-xl px-16 py-10 flex flex-col justify-center">
+                        <div class=" text-center mb-24">
+                            <p class="text-textOpSc font-semibold text-xl mb-8">STARTER</p>
+                            <p class="text-6xl font-bold text-textPr mb-4"><span class="text-3xl font-medium">$</span>
+                                399
+                            </p>
+                            <p class="text-textOpFr">per month. That's just $13 per meal!</p>
+                        </div>
+                        <ul class="space-y-4 mb-10">
+                            <li class="flex gap-3"><svg width="32px" height="32px" viewBox="0 0 512 512"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <title>ionicons-v5-e</title>
+                                    <polyline points="416 128 192 384 96 288"
+                                        style="fill:none;stroke:#e67e22;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px" />
+                                </svg><span class="text-lg">1 meal per day</span></li>
+                            </li>
+                            <li class="flex gap-3"><svg width="32px" height="32px" viewBox="0 0 512 512"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <title>ionicons-v5-e</title>
+                                    <polyline points="416 128 192 384 96 288"
+                                        style="fill:none;stroke:#e67e22;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px" />
+                                </svg><span class="text-lg">Order from 11am to 9pm</span></li>
+                            </li>
+                            <li class="flex gap-3"><svg width="32px" height="32px" viewBox="0 0 512 512"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <title>ionicons-v5-e</title>
+                                    <polyline points="416 128 192 384 96 288"
+                                        style="fill:none;stroke:#e67e22;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px" />
+                                </svg><span class="text-lg">Delivery is free</span></li>
+                            </li>
+                            <li class="flex gap-3 stroke-current stroke-primary fill-transparent"><svg
+                                    xmlns="http://www.w3.org/2000/svg" width="32px" height="32px" viewBox="0 0 512 512"
+                                    class="storke-primary stroke-current fill-transparent">
+                                    <title>Close</title>
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M368 368L144 144M368 144L144 368"
+                                        class="storke-primary text-primary stroke-[32px] fill-transparent">
+                                    </path>
+                                </svg>
+                            </li>
+                        </ul>
+                        <a class="btnPrimary" href="#">Start eating well</a>
+                    </div>
+                    <div
+                        class="bg-second rounded-xl px-16 py-10 flex flex-col justify-center tag relative overflow-hidden">
+                        <div class=" text-center mb-16">
+                            <p class="text-textOpSc font-semibold text-xl mb-8">COMPLETE</p>
+                            <p class="text-6xl font-bold text-textPr mb-4"><span
+                                    class="text-3xl font-medium">$</span>649</p>
+                            <p class="text-textOpFr">per month. That's just $11 per meal!</p>
+                        </div>
+                        <ul class="space-y-4 mb-10">
+                            <li class="flex gap-3"><svg width="32px" height="32px" viewBox="0 0 512 512"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <title>ionicons-v5-e</title>
+                                    <polyline points="416 128 192 384 96 288"
+                                        style="fill:none;stroke:#e67e22;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px" />
+                                </svg><span class="text-lg"><span class="font-semibold">2 meal</span> per day</span>
+                            </li>
+                            </li>
+                            <li class="flex gap-3"><svg width="32px" height="32px" viewBox="0 0 512 512"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <title>ionicons-v5-e</title>
+                                    <polyline points="416 128 192 384 96 288"
+                                        style="fill:none;stroke:#e67e22;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px" />
+                                </svg><span class="text-lg">Order <span class="font-semibold">24/7</span></span></li>
+                            </li>
+                            <li class="flex gap-3"><svg width="32px" height="32px" viewBox="0 0 512 512"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <title>ionicons-v5-e</title>
+                                    <polyline points="416 128 192 384 96 288"
+                                        style="fill:none;stroke:#e67e22;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px" />
+                                </svg><span class="text-lg">Delivery is free</span></li>
+                            </li>
+                            <li class="flex gap-3"><svg width="32px" height="32px" viewBox="0 0 512 512"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <title>ionicons-v5-e</title>
+                                    <polyline points="416 128 192 384 96 288"
+                                        style="fill:none;stroke:#e67e22;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px" />
+                                </svg><span class="text-lg">Get access to latest recipes</span></li>
+                            </li>
+                        </ul>
+                        <a class="btnPrimary" href="#">Start eating well</a>
+                    </div>
+                </div>
+
+                <p class="text-center">Prices include all applicable taxes. You can cancel at any time. Both plans
+                    include the following:</p>
+                <div class="grid grid-cols-4 px-4 py-16 gap-4">
+                    <div class="flex flex-col px-4 py-4">
+                        <div
+                            class="stroke-current text-primary fill-transparent bg-second rounded-full w-16 h-16 flex items-center justify-center mb-6">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-8" viewBox="0 0 512 512">
+                                <title>Infinite</title>
+                                <path
+                                    d="M256 256s-48-96-126-96c-54.12 0-98 43-98 96s43.88 96 98 96c37.51 0 71-22.41 94-48M256 256s48 96 126 96c54.12 0 98-43 98-96s-43.88-96-98-96c-37.51 0-71 22.41-94 48"
+                                    stroke-linecap="round" stroke-miterlimit="10" class="stroke-[32px]"></path>
+                            </svg>
+                        </div>
+                        <p class="text-textPr text-2xl font-bold mb-4">Never cook again!</p>
+                        <p class="text-lg pr-4">Our subscriptions cover 365 days per year, even including major
+                            holidays.</p>
+                    </div>
+                    <div class="flex flex-col px-4 py-4">
+                        <div
+                            class="stroke-current text-primary fill-transparent bg-second rounded-full w-16 h-16 flex items-center justify-center mb-6">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 " viewBox="0 0 512 512">
+                                <title>Infinite</title>
+                                <path
+                                    d="M352 128c-32.26-2.89-64 16-96 16s-63.75-19-96-16c-64 6-96 64-96 160 0 80 64 192 111.2 192s51.94-24 80.8-24 33.59 24 80.8 24S448 368 448 288c0-96-29-154-96-160z"
+                                    stroke-miterlimit="10" class="stroke-[32px]"></path>
+                                <path class="stroke-[12px] fill-current"
+                                    d="M323.92 83.14c-21 21-45.66 27-58.82 28.79a8 8 0 01-9.1-8.73 97.6 97.6 0 0128.61-59.33c22-22 46-26.9 58.72-27.85a8 8 0 018.67 8.92 98 98 0 01-28.08 58.2z">
+                                </path>
+                                <ellipse cx="296" cy="304" rx="24" ry="48" class="stroke-[12px] fill-current"></ellipse>
+                                <ellipse cx="216" cy="304" rx="24" ry="48" class="stroke-[12px] fill-current"></ellipse>
+                            </svg>
+                        </div>
+                        <p class="text-textPr text-2xl font-bold mb-4">Local and organic</p>
+                        <p class="text-lg pr-4">Our cooks only use local, fresh, and organic products to prepare your
+                            meals.</p>
+                    </div>
+                    <div class="flex flex-col px-4 py-4">
+                        <div
+                            class="stroke-current text-primary fill-transparent bg-second rounded-full w-16 h-16 flex items-center justify-center mb-6">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 " viewBox="0 0 512 512">
+                                <title>Infinite</title>
+                                <path
+                                    d="M321.89 171.42C233 114 141 155.22 56 65.22c-19.8-21-8.3 235.5 98.1 332.7 77.79 71 197.9 63.08 238.4-5.92s18.28-163.17-70.61-220.58zM173 253c86 81 175 129 292 147"
+                                    stroke-linecap="round" stroke-linejoin="round" class="stroke-[32px]"></path>
+                            </svg>
+                        </div>
+                        <p class="text-textPr text-2xl font-bold mb-4">No waste</p>
+                        <p class="text-lg pr-4">All our partners only use reusable containers to package all your meals.
+                        </p>
+                    </div>
+                    <div class="flex flex-col px-4 py-4">
+                        <div
+                            class="stroke-current text-primary fill-transparent bg-second rounded-full w-16 h-16 flex items-center justify-center mb-6">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 " viewBox="0 0 512 512">
+                                <title>Infinite</title>
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M176 96h16v320h-16zM320 96h16v320h-16z" class="stroke-[32px]"></path>
+                            </svg>
+                        </div>
+                        <p class="text-textPr text-2xl font-bold mb-4">Pause anytime</p>
+                        <p class="text-lg pr-4">Going on vacation? Just pause your subscription, and we refund unused
+                            days.</p>
+                    </div>
+                </div>
+            </div>
+        </sectios>
+        <section id="cta">
+            <div class="py-24 px-24 text-[#45260a]">
+                <div class="bg-textOpSc rounded-xl flex shadow-xl">
+                    <div class="flex flex-col items-center justify-center w-full ml-12 py-6">
+                        <h2 class="font-bold text-4xl text-[#45260a] flex justify-start w-full mb-8">Get your first meal
+                            for free!</h2>
+                        <p class="text-lg ">Healthy, tasty and hassle-free meals are waiting for you. Start eating well
+                            today. You can cancel
+                            or pause anytime. And the first meal is on us!</p>
+                        <form class="mt-8 grid grid-cols-2 gap-8 w-full">
+                            <div class="flex flex-col">
+                                <label class="font-medium" for="">
+                                    Full Name
+                                </label>
+                                <input
+                                    class="px-4 py-3 mt-2 rounded-lg outline-none focus:ring-8 ring-white ring-opacity-50"
+                                    type="text" placeholder="John Smith">
+
+                            </div>
+                            <div class="flex flex-col">
+                                <label class="font-medium" for="">
+                                    Email address
+                                </label>
+                                <input
+                                    class="px-4 py-3 mt-2 rounded-lg outline-none focus:ring-8 ring-white ring-opacity-50"
+                                    type="text" placeholder="me@example.com">
+
+                            </div>
+                            <div class="flex flex-col">
+                                <label class="font-medium" for="">
+                                    Where did you hear from us?
+                                </label>
+                                <select
+                                    class="px-4 py-3 mt-2 rounded-lg outline-none focus:ring-8 ring-white ring-opacity-50"
+                                    type="text" placeholder="John Smith">
+                                    <option value="Please choose one option:">Please choose one option:</option>
+                                    <option value="friends">Friends and family</option>
+                                    <option value="youtube">YouTube video</option>
+                                    <option value="podcast">Podcast</option>
+                                    <option value="ad">Facebook ad</option>
+                                    <option value="others">Others</option>
+                                </select>
+
+                            </div>
+                            <div class="pt-8">
+                                <a href="#" class="btnCta">Sing up now</a>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="rounded-xl w-9/12 flex justify-end">
+                        <img class="rounded-r-xl w-9/12" src="./assets/img/eating.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+    <footer class=" border-t border-[#eee] pt-24 pb-12">
+        <div class="grid grid-cols-5 px-28 gap-12">
+            <div class="flex flex-col gap-6 pt-1.5">
+                <a href="#">
+                    <img class="h-6" src="/assets/img/omnifood-logo.png" alt=""></a>
+                <div class="flex gap-6 mb-14">
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 opacity-50" viewBox="0 0 512 512">
+                            <title>Logo Instagram</title>
+                            <path
+                                d="M349.33 69.33a93.62 93.62 0 0193.34 93.34v186.66a93.62 93.62 0 01-93.34 93.34H162.67a93.62 93.62 0 01-93.34-93.34V162.67a93.62 93.62 0 0193.34-93.34h186.66m0-37.33H162.67C90.8 32 32 90.8 32 162.67v186.66C32 421.2 90.8 480 162.67 480h186.66C421.2 480 480 421.2 480 349.33V162.67C480 90.8 421.2 32 349.33 32z">
+                            </path>
+                            <path
+                                d="M377.33 162.67a28 28 0 1128-28 27.94 27.94 0 01-28 28zM256 181.33A74.67 74.67 0 11181.33 256 74.75 74.75 0 01256 181.33m0-37.33a112 112 0 10112 112 112 112 0 00-112-112z">
+                            </path>
+                        </svg>
+                    </a>
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 opacity-50" viewBox="0 0 512 512">
+                            <title>Logo Facebook</title>
+                            <path
+                                d="M480 257.35c0-123.7-100.3-224-224-224s-224 100.3-224 224c0 111.8 81.9 204.47 189 221.29V322.12h-56.89v-64.77H221V208c0-56.13 33.45-87.16 84.61-87.16 24.51 0 50.15 4.38 50.15 4.38v55.13H327.5c-27.81 0-36.51 17.26-36.51 35v42h62.12l-9.92 64.77H291v156.54c107.1-16.81 189-109.48 189-221.31z"
+                                fill-rule="evenodd"></path>
+                        </svg>
+                    </a>
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 opacity-50" viewBox="0 0 512 512">
+                            <title>Logo Twitter</title>
+                            <path
+                                d="M496 109.5a201.8 201.8 0 01-56.55 15.3 97.51 97.51 0 0043.33-53.6 197.74 197.74 0 01-62.56 23.5A99.14 99.14 0 00348.31 64c-54.42 0-98.46 43.4-98.46 96.9a93.21 93.21 0 002.54 22.1 280.7 280.7 0 01-203-101.3A95.69 95.69 0 0036 130.4c0 33.6 17.53 63.3 44 80.7A97.5 97.5 0 0135.22 199v1.2c0 47 34 86.1 79 95a100.76 100.76 0 01-25.94 3.4 94.38 94.38 0 01-18.51-1.8c12.51 38.5 48.92 66.5 92.05 67.3A199.59 199.59 0 0139.5 405.6a203 203 0 01-23.5-1.4A278.68 278.68 0 00166.74 448c181.36 0 280.44-147.7 280.44-275.8 0-4.2-.11-8.4-.31-12.5A198.48 198.48 0 00496 109.5z">
+                            </path>
+                        </svg>
+                    </a>
+                </div>
+                <span class="text-sm">Copyright © 2022 by Omnifood, Inc. All rights reserved.</span>
+            </div>
+            <div>
+                <p class="font-medium text-xl mb-8">Contact us</p>
+                <ul class="space-y-8">
+                    <li>623 Harrison St., 2nd Floor, San Francisco, CA 94107</li>
+                    <li class="flex flex-col"><a>415-201-6370</a><a>hello@omnifood.com</a></li>
+                </ul>
+            </div>
+            <div>
+                <p class="font-medium text-xl mb-8">Account</p>
+                <ul class="space-y-3">
+                    <li class="flex"><a href="#">Create account</a></li>
+                    <li class="flex"><a href="#">Sign in</a></li>
+                    <li class="flex"><a href="#">IOS app</a></li>
+                    <li class="flex"><a href="#">Android app</a></li>
+                </ul>
+            </div>
+            <div>
+                <p class="font-medium text-xl mb-8">Company</p>
+                <ul class="space-y-3">
+                    <li class="flex"><a href="#">About Omnifood</a></li>
+                    <li class="flex"><a href="#">For Business</a></li>
+                    <li class="flex"><a href="#">Cooking partners</a></li>
+                    <li class="flex"><a href="#">Careers</a></li>
+                </ul>
+            </div>
+            <div>
+                <p class="font-medium text-xl mb-8">Resources</p>
+                <ul class="space-y-3">
+                    <li class="flex"><a href="#">Recipe directory</a></li>
+                    <li class="flex"><a href="#">Recipe directory</a></li>
+                    <li class="flex"><a href="#">Privacy & terms</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <script>
+
+    </script>
+</body>
+
+
+</html>
